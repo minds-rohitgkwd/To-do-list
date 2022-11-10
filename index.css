@@ -1,0 +1,64 @@
+.body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.heading {
+    font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+
+.list {
+   
+    background-color: #f5f9fd;
+}
+
+.main {
+  height: 600px;
+  background-color: #EBF2FA;
+}
+
+/* .disable_item{
+
+    } */
+
+.task-list {
+  height: 50vh;
+  width: 80%;
+}
+
+.task-list::-webkit-scrollbar {
+  display: none;
+}
+
+.main-list > li:hover {
+  
+  box-shadow: 2px -2px 30px rgba(0, 0, 0, 0.03),
+    -2px 2px 30px rgba(0, 0, 0, 0.03), 2px 2px 30px rgba(0, 0, 0, 0.03),
+    -2px -2px 30px rgba(0, 0, 0, 0.03);
+
+}
+
+.container-main{
+    box-shadow: 2px -2px 30px rgba(0, 0, 0, 0.03),
+    -2px 2px 30px rgba(0, 0, 0, 0.03), 2px 2px 30px rgba(0, 0, 0, 0.03),
+    -2px -2px 30px rgba(0, 0, 0, 0.03);
+    
+}
+
+#task-input-area{
+    background-color: white;
+    box-shadow: 2px -2px 10px rgba(0, 0, 0, 0.03),
+    -2px 2px 30px rgba(0, 0, 0, 0.03), 2px 2px 30px rgba(0, 0, 0, 0.03),
+    -2px -2px 30px rgba(0, 0, 0, 0.03);
+}
+
+.nav{
+    background-color: #a9bfd8;
+    box-shadow: 2px -2px 10px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid #3f5f85
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do-App</title>
+    <!--   bootstrap  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--   css     -->
+    <link rel="stylesheet" href="index.css" />
+    <!--   font awesome   -->
+
+    <script
+    src="https://kit.fontawesome.com/98e45bb1ad.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--     google fonts    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Montserrat:wght@600&family=Ubuntu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    
+  </head>
+  <body>
+    <div class="container-main w-75 m-auto p-0 mt-5">
+      <!--  Navbar   -->
+
+      <nav class="navbar navbar-light p-2 mb-0 nav">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold fs-3 heading">TO-DO KEEPER</a>
+          <form class="d-flex">
+            <a class="navbar-brand" href="#">
+              <i class="fa-solid fa-circle-user"></i>
+            </a>
+          </form>
+        </div>
+      </nav>
+      
+      <!--   main section   -->
+
+      <section
+        class="main d-flex justify-content-center align-items-stretch flex-row w-100 m-auto p-3"
+      >
+        <!--     list section   -->
+
+        <div class="list p-3 container mr-3 ml-0 w-25">
+          <div
+            class="container d-flex align-items-center justify-content-between p-3 mb-4"
+            class="container d-flex align-items-center justify-content-between p-3 mb-4"
+          >
+            <h3 class="d-inline">Lists</h3>
+          </div>
+
+          <ul class="list-group m-2 list-group-flush main-list">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center "
+              id="all-task-lt-btn"
+            >
+              All
+              <!-- <span class="badge bg-primary rounded-pill">2</span> -->
+            </li>
+
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+              id="completed-task-lt-btn"
+            >
+              Completed
+              <!-- <span class="badge bg-primary rounded-pill" id="badge-completed">0</span> -->
+            </li>
+
+          </ul>
+        </div>
+
+        <!--     Task section     -->
+
+        <div class="task container m-3 w-50 flex-grow-1 p-4 overflow-hidden">
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-sm"
+            id="create-task-btn"
+            data-bs-toggle="collapse"
+            href="#multiCollapseExample1"
+            role="button"
+            aria-expanded="false"
+            aria-controls="multiCollapseExample1"
+          >
+            <i class="fa-solid fa-plus"></i>
+            Add task
+          </button>
+
+          <!--    add  task    -->
+
+          <div class="row mb-5 mt-2 add-task-area">
+            <div class="col">
+              <div
+                class="collapse multi-collapse task-collapse"
+                id="multiCollapseExample1"
+              >
+                <div
+                  class="container border rounded-3 m-auto p-3 m-3 w-75"
+                  id="task-input-area"
+                >
+                  <!-- Title area -->
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="add-title"
+                      placeholder="title"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <!--  Description area  -->
+                  <div class="input-group">
+                    <textarea
+                      class="form-control"
+                      id="add-desc"
+                      aria-label="With textarea"
+                      placeholder="description"
+                    ></textarea>
+                  </div>
+                  <!--  Add task button -->
+                  <!-- <i class="fa-regular fa-flag" id="mark-imp-btn"></i> -->
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm m-2"
+                    id="add-task-btn"
+                  >
+                    add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--    delete all -->
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            id="delete-all-btn"
+          >
+            <i class="fa-solid fa-minus"></i>
+            delete all
+          </button>
+
+          <!--     Tasks list  -->
+
+          <div class="container-fluid task-list p-3 m-auto mt-3 overflow-auto">
+            <ul
+              class="list-group list-group-flush"
+              id="task-list"
+              style="user-select: none"
+            ></ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
