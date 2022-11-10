@@ -4,13 +4,14 @@ const ADD_TITLE = document.getElementById("add-title");
 const ADD_DESC = document.getElementById("add-desc");
 const ADD_TASK = document.getElementById("add-task-btn");
 const TASK_LIST = document.getElementById("task-list");
+const TASK_SECTION = document.getElementById("task-section");
 const DELETE_ALL = document.getElementById("delete-all-btn");
 const CREATE_TASK = document.getElementById("create-task-btn");
 const INPUT_TOGGLE_BTN = document.getElementById("input-toggle-btn");
 const TASK_INPUT = document.getElementById("task-input-area");
 const COLLAPSE = document.querySelector(".task-collapse");
-const MARK_IMP = document.getElementById("mark-imp-btn")
-
+const MARK_IMP = document.getElementById("mark-imp-btn");
+const LIST_HEADING = document.getElementById("list-heading");
 
 // variables for lists
 
@@ -19,7 +20,6 @@ const LIST_ALL_BTN = document.getElementById("all-task-lt-btn");
 const BADGE_COMPLETED = document.getElementById("badge-completed");
 
 let SAVE_BTN;
-let LIST_ITEM;
 
 // local storage variables
 
@@ -31,6 +31,7 @@ let data = JSON.parse(localStorage.getItem("task"));
 renderList();
 
 const MARK_FLAG = document.getElementById("flag-mark")
+
 
 // ------------------call to Event Listeners --------------------------------
 
@@ -66,7 +67,7 @@ function renderCompletedList() {
   for (let i = 0; i < data.length; i++) {
     if (data[i].hasOwnProperty("index")) {
       TASK_LIST.innerHTML += `<li class="list-group-item d-flex align-items-center text-muted" id="list-item" >
-      <i class= "fa-regular fa-square-check m-2"  id="check-box" ></i>
+      <i class= "fa-solid fa-square-check m-2"  id="check-box" ></i>
      
       <div class="ms-2 me-auto" >
       <div class="fw-bold text-wrap text-break">${data[i].title}</div>
@@ -82,6 +83,7 @@ function renderCompletedList() {
 
   CREATE_TASK.classList.add("d-none");
   DELETE_ALL.classList.add("d-none");
+  LIST_HEADING.className = "d-block";
 
   
 }
@@ -132,7 +134,7 @@ function renderList() {
 
   CREATE_TASK.classList.remove("d-none");
   DELETE_ALL.classList.remove("d-none");
-  
+  LIST_HEADING.className = "d-none";
 
   data = JSON.parse(localStorage.getItem("task"));
 
@@ -153,12 +155,16 @@ function renderList() {
       </div>
     </li>`;
 
-      LIST_ITEM = document.querySelectorAll("#list-item");
+      const LIST_ITEM = document.querySelectorAll("#list-item");
+      const CHECK_BOX = document.querySelectorAll("#check-box")
+      const checked_box = CHECK_BOX[i];
 
       if (data[i].status == "true") {
         LIST_ITEM[i].classList.add("text-muted");
+        checked_box.classList.add("fa-solid")
       } else {
         LIST_ITEM[i].classList.remove("text-muted");
+        checked_box.classList.remove("fa-solid")
       }
     }
 
@@ -188,13 +194,13 @@ function markDone(i) {
     delete data[i]["index"];
     localStorage.setItem("task", JSON.stringify(data));
   } else {
-    console.log("jh");
     data[i]["status"] = "true";
     data[i]["index"] = i;
     localStorage.setItem("task", JSON.stringify(data));
   }
 
   renderList();
+
 }
 
 
